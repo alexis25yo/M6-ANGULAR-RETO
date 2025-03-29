@@ -4,6 +4,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
 
 
 
@@ -12,7 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HeaderComponent,
     AlertComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule
@@ -21,7 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HeaderComponent,
     AlertComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarouselComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,320 @@
+<app-header></app-header>
+<body>
+  <div class="boardsContainer">
+    <h4>Todo en un solo lugar</h4>
+    <div class="cardsContainer">
+      <div class="card" *ngFor="let item of cardsItems" style="width: 18rem">
+        <img class="card-img-top" [src]="item.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          <button
+            class="btn btn-primary"
+            (click)="showMenuId(item.modalId)"
+          >
+            {{ item.buttonText }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<app-footer class="footerBoard"></app-footer>
+
+<!-- Modal ID 1 Saldo Actual-->
+<div
+  class="modal fade"
+  id="1"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Saldo Actual
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 Deposito sucursal-->
+<div
+  class="modal fade"
+  id="2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Deposito sucursal
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 Retiro cajero-->
+<div
+  class="modal fade"
+  id="3"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Ingrese el monto a retirar
+        </h5>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formRetirarCajero" (ngSubmit)="postRetirarCajero()">
+          <div class="form-group">
+            <label for="montoRetiro">Monto a retirar</label>
+            <input
+              type="number"
+              class="form-control"
+              id="montoRetiro"
+              placeholder="Ingrese el monto"
+              formControlName="montoRetiro"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Retirar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4 Compra Wab-->
+<div
+  class="modal fade"
+  id="4"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Compra Web
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5 Compra fisica-->
+<div
+  class="modal fade"
+  id="5"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Compra fisica
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 6 Deposito otra cuenta-->
+<div
+  class="modal fade"
+  id="6"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Deposito otra cuenta
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 7 Consultar transacciones-->
+<div
+  class="modal fade"
+  id="7"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Estos son tus últimos movimientos
+        </h5>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped table-success">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tipo de transacción</th>
+              <th>Monto</th>
+              <th>Fecha y Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let transaccion of transacciones">
+              <td>{{ transaccion.id }}</td>
+              <td>{{ transaccion.tipo }}</td>
+              <td>{{ transaccion.monto | currency }}</td>
+              <td>{{ transaccion.fechaHora | date: 'short' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 8 Deposito Cajero-->
+<div
+  class="modal fade"
+  id="8"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Deposito Cajero
+        </h5>
+      </div>
+      <div class="modal-body">
+        <h2>{{saldoActual | currency}} </h2>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="closeModal()"
+        >
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Consultar</button>
+      </div>
+    </div>
+  </div>
+</div>
