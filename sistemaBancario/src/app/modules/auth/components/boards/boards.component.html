@@ -71,7 +71,19 @@
         </h5>
       </div>
       <div class="modal-body">
-        <h2>{{saldoActual | currency}} </h2>
+        <form [formGroup]="formDespositoSucursal" (ngSubmit)="postDepositoSucursal()">
+          <div class="form-group">
+            <label for="montoDeposito">Monto a depositar</label>
+            <input
+              type="number"
+              class="form-control"
+              id="montoDeposito"
+              placeholder="Ingrese el monto"
+              formControlName="montoDeposito"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Depositar</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button
@@ -150,7 +162,19 @@
         </h5>
       </div>
       <div class="modal-body">
-        <h2>{{saldoActual | currency}} </h2>
+        <form [formGroup]="formCompraWeb" (ngSubmit)="postCompraWeb()">
+          <div class="form-group">
+            <label for="montoCompra">Valor de la compra</label>
+            <input
+              type="number"
+              class="form-control"
+              id="montoCompra"
+              placeholder="Ingrese el monto"
+              formControlName="montoCompra"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Comprar</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button
@@ -161,7 +185,6 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-primary">Consultar</button>
       </div>
     </div>
   </div>
@@ -184,7 +207,19 @@
         </h5>
       </div>
       <div class="modal-body">
-        <h2>{{saldoActual | currency}} </h2>
+        <form [formGroup]="formCompraFisica" (ngSubmit)="postCompraFisica()">
+          <div class="form-group">
+            <label for="montoCompra">Monto Comprar</label>
+            <input
+              type="number"
+              class="form-control"
+              id="montoCompra"
+              placeholder="Ingrese el monto"
+              formControlName="montoCompra"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Comprar</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button
@@ -193,9 +228,8 @@
           data-dismiss="modal"
           (click)="closeModal()"
         >
-          Close
+          Cerrar
         </button>
-        <button type="button" class="btn btn-primary">Consultar</button>
       </div>
     </div>
   </div>
@@ -214,11 +248,33 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">
-          Deposito otra cuenta
+          Tranferir saldo
         </h5>
       </div>
       <div class="modal-body">
-        <h2>{{saldoActual | currency}} </h2>
+        <form [formGroup]="formDepositoOtraCuenta" (ngSubmit)="postDepositoOtraCuenta()">
+          <div class="form-group">
+            <label for="montoTransferir">Mondo a Tranferir</label>
+            <input
+              type="number"
+              class="form-control"
+              id="montoTransferir"
+              placeholder="Ingrese el monto"
+              formControlName="montoTransferir"
+            />
+          </div>
+          <div class="form-group">
+            <label for="nuneroCuenta">Numero de cuenta</label>
+            <input
+              type="number"
+              class="form-control"
+              id="nuneroCuenta"
+              placeholder="Ingrese el numero de la cuenta"
+              formControlName="nuneroCuenta"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Comprar</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button
@@ -229,7 +285,6 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-primary">Consultar</button>
       </div>
     </div>
   </div>
@@ -302,7 +357,19 @@
         </h5>
       </div>
       <div class="modal-body">
-        <h2>{{saldoActual | currency}} </h2>
+        <form [formGroup]="formDespositoCajero" (ngSubmit)="postDespositoCajero()">
+          <div class="form-group">
+            <label for="motoDeposito">Monto a depositar</label>
+            <input
+              type="number"
+              class="form-control"
+              id="motoDeposito"
+              placeholder="Ingrese el monto"
+              formControlName="motoDeposito"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Despositar</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button
@@ -313,7 +380,6 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-primary">Consultar</button>
       </div>
     </div>
   </div>

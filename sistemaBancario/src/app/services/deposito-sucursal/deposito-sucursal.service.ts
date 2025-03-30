@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DepositoSucursalService {
-  private apiUrl = 'http://localhost:8080/cuenta/deposito/sucursal/1';
 
   constructor(private httpClient: HttpClient) {}
 
